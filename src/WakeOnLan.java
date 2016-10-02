@@ -19,6 +19,8 @@ public class WakeOnLan extends Application{
 	private TextField tf_ip, tf_mac;
 	private GridPane gp_wake;
 	private Button btn;
+	private String ip,mac;
+	private String[] temp;
 
 	public static void main(String[] args) {
 		launch(args);
@@ -39,15 +41,15 @@ public class WakeOnLan extends Application{
 		GridPane.setHgrow(tf_ip,Priority.ALWAYS);
 		GridPane.setHgrow(tf_mac,Priority.ALWAYS);
 
-		String[] temp = readfile();
+		temp = readfile();
 		tf_ip.setText(temp[0]);
 		tf_mac.setText(temp[1]);
 		
 		btn.setOnAction(new EventHandler<ActionEvent>(){
 			@Override
 			public void handle(ActionEvent event){
-				String ip = tf_ip.getText();
-				String mac = tf_mac.getText();
+				ip = tf_ip.getText();
+				mac = tf_mac.getText();
 				run(ip,mac);
 			}
 		});
