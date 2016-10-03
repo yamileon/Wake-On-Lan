@@ -15,8 +15,8 @@ import javafx.stage.Stage;
 public class WakeOnLan extends Application{
 	
 	public static final int PORT = 24;
-	private Label label_ip,label_mac;
-	private TextField tf_ip, tf_mac;
+	private Label label_ip,label_mac,label_user,label_hostname;
+	private TextField tf_ip, tf_mac,tf_user,tf_hostname;
 	private GridPane gp_wake;
 	private Button btn;
 	private String ip,mac;
@@ -136,6 +136,17 @@ public class WakeOnLan extends Application{
 			temp[1] = "mac not found please fill in";
 		}	
 		return temp;
+	}
+
+	public static void PowerOff(){
+		try{
+			Session session = jsch.getSession(user, host, port);
+
+			
+		}
+		catch(Exception e){
+			System.out.println(e);
+		}
 	}
 	
 }
